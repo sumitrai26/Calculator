@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">'
+  <style>
+
+    /* style.css */
+
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.display {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 60px;
+  font-size: 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+.operator {
+  background-color: #ffb74d;
+  color: #fff;
+}
+
+.operator:hover {
+  background-color: #250242;
+}
+
+.equals {
+  background-color: #4caf50;
+  color: #fff;
+  grid-column: span 1;
+}
+
+.equals:hover {
+  background-color: #43a047;
+}
+
+.clear {
+  background-color: #f44336;
+  color: #fff;
+  grid-column: span 4;
+}
+
+.clear:hover {
+  background-color: #e53935;
+}
+
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display" id="display"disabled>
+    <div class="buttons">
+      <button  onclick="cal(7)">7</button>
+      <button onclick="cal(8)">8</button>
+      <button onclick="cal(9)">9</button>
+      <button onclick="cal('/')" class="operator">/</button>
+
+      <button onclick="cal(4)">4</button>
+      <button onclick="cal(5)">5</button>
+      <button onclick="cal(6)">6</button>
+      <button onclick="cal('*') " class="operator">*</button>
+
+      <button onclick="cal(1)">1</button>
+      <button onclick="cal(2)">2</button>
+      <button onclick="cal(3)">3</button>
+      <button onclick="cal('-')" class="operator">-</button>
+
+      <button onclick="cal(0)">0</button>
+      <button onclick="cal('.')">.</button>
+      <button onclick="equal('=') " class="equals">=</button>
+      <button onclick="cal('+') " class="operator">+</button>
+
+      <button onclick="clearDisplay()" class="clear">C</button>
+    </div>
+  </div>
+<script>
+  
+    function cal(num){
+        document.getElementById('display').value+= num;
+    }
+    function equal(){
+        try{
+            document.getElementById('display').value= eval(document.getElementById('display').value)
+        }
+        catch(e){
+            ocument.getElementById('display').value = e;
+        }
+    }
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+  </script>
+</body>
+</html>
